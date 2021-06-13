@@ -12,7 +12,7 @@ const AddEvents = () => {
       name: data.name,
       imageURL: imageURL
     };
-    const url = `http://localhost:5050/addEvent`;
+    const url = `https://sheltered-reaches-49918.herokuapp.com/events/addEvent`;
     fetch(url, {
       method: 'POST', 
       headers: {

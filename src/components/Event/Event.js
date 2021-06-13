@@ -5,9 +5,12 @@ const Event = ({event}) => {
    
     const deleteEvent = id => {
        console.log(id);
-      fetch(`http://localhost:5050/deleteEvent/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://sheltered-reaches-49918.herokuapp.com/events/deleteEvent/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => console.log(data));
     }
