@@ -7,7 +7,7 @@ const Home = () => {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5055/events')
+        fetch('http://localhost:5050/events')
         .then(res => res.json())
         .then(data => setEvents(data))
     }, [])
@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <div className="row">
             {
-                events.map(event =><Event event={event}></Event>)
+                events.map(event => <Event event={event}> </Event>)
             }
         </div>
     );

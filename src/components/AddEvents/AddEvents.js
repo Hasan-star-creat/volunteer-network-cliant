@@ -12,8 +12,7 @@ const AddEvents = () => {
       name: data.name,
       imageURL: imageURL
     };
-    const url = `http://localhost:5055/addEvent`;
-    
+    const url = `http://localhost:5050/addEvent`;
     fetch(url, {
       method: 'POST', 
       headers: {
@@ -24,20 +23,22 @@ const AddEvents = () => {
     .then(res => console.log('server side response', res))
   };
 
+    // imge send imgbb then create a link,  link set imgeurl state 
   const handleImageUpload = event => {
     console.log(event.target.files[0])
     const imageData = new FormData();
-    imageData.set('key', '4295ac4d47b569312bea67b440cdbdbb');
+    imageData.set("key", "2c319e3544fcef611297cee1c47a86aa");
     imageData.append('image', event.target.files[0]);
     
-    axios.post('https://api.imgbb.com/1/upload', 
-    imageData)
-    .then(function (response) {
-      setIMageURL(response.data.data.display_url);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    axios.post('https://api.imgbb.com/1/upload',
+       imageData)
+      .then(res => {
+        setIMageURL(res.data.data.display_url);
+        console.log(res.data.data.display_url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
   }
   return (
@@ -45,7 +46,7 @@ const AddEvents = () => {
       <h1>Add your awesome Event here</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
     
-      <input name="name" defaultValue="New exciting Event" ref={register} />
+      <input name="name" placeholder="new exiting event" ref={register} />
       <br/>
       <input name="exampleRequired" type="file" onChange={handleImageUpload} />
       <br/>

@@ -1,12 +1,7 @@
 import React from 'react';
 import './App.css';
 import Home from './components/Home/Home';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import AddEvents from './components/AddEvents/AddEvents';
 
 function App() {
@@ -34,8 +29,12 @@ function App() {
             <AddEvents />
           </Route>
           <Route path="/dashboard">
-            
+              
           </Route>
+         <Route path="*/">
+                 <Home></Home>
+         </Route>
+
         </Switch>
       </div>
     </Router>
